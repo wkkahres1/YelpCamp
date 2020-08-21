@@ -1,0 +1,90 @@
+body {
+  background-color: #000;
+}
+
+#landing-header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 40vh;
+}
+/*z index is forward and back. 1 comes forward to layer on top of anything lower than 1
+To use this we need to change position away from static.  Then text align center, and then used
+padding-top: 40 view height */
+
+#landing-header h1{
+  color: white;
+}
+
+/*slideshow container*/
+.slideshow { 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/*z-index 0 makes back ground behind other contenet, list style gets rid of bullet points*/
+
+/*initialize*/ 
+.slideshow li { 
+  width: 100%;
+  height: 100%;
+  position: absolute; 
+  top: 0;
+  left: 0;
+  background-size: cover; /* images taek up entire space */
+  background-position: 50% 50%;
+  background-repeat: no-repeat; /* no repeating the image */
+  opacity: 0; /*start faded out and slowly fade into opacity of 1 */
+  z-index: 0; /*behind the text and the button */
+  animation: imageAnimation 50s linear infinite; /*imageAnimation is variable name, 50s, linear same speed beginning to end*/
+}
+
+/*add background images to list items, images changes every 10 seconds*/
+.slideshow li:nth-child(1) { 
+  background-image: url(http://i.imgur.com/K3mPv14.jpg) 
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+  animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+  animation-delay: 40s; 
+}
+
+/*animation*/
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in; /*smooth transition*/
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}

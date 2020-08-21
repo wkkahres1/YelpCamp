@@ -1,0 +1,19 @@
+<%- include("./partials/header") %>
+
+
+	<h1>
+		Log into YelpCamp below
+	</h1>
+	<form action = "/login" method="POST">
+		<input type = "text" placeholder = "username" name = "username">
+		<input type = "password" placeholder = "password" name = "password">
+		<input type = "submit" value = "Log in"> <!--another way to create the submit button-->
+	</form>
+<!--
+	<ul>
+		<li><a href = "/register">Sign up here to become a MEMBER!</a></li>
+		<li><a href = "/login">Log in here to EXPERIENCE.</a></li>
+		<li><a href = "/logout">Done? Click here to log out.</a></li>
+	</ul>-->
+
+<%- include("./partials/footer") %>

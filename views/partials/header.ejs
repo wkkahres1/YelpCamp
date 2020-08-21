@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Yelp Camp</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 	integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+		<link rel="stylesheet" href ="/stylesheets/main.css">
+	</head>
+<body>
+	
+<nav class = "navbar navbar-default">
+	<div class = "container-fluid">
+		<div class = "navbar-header">
+			<a class = "navbar-brand" href = "/">YelpCamp</a>
+		</div>
+		<div class = "collapse navbar-collapse"> <!-- collapse hides it when it gets small -->
+			<ul class = "nav navbar-nav navbar-right">
+				<!-- if no user (undefined) -->
+				<% if(!currentUser){ %>
+					<li><a href ="/login">Login</a></li>
+					<li><a href ="/register">Sign Up</a></li>
+				<!-- else -->
+				<% } else { %>
+				<li><a href="">Signed in as <%= currentUser.username %> </a></li>
+				<li><a href ="/logout">Sign Out</a></li>
+				<% } %>
+			</ul>
+		</div>
+	</div>
+</nav>
+	
+<div class = "container">
+	<% if (error && error.length > 0){ %>
+	<!-- error.length > 0 because empty arrays are still truthy -->
+		<div class = "alert alert-danger" role = "alert">
+			<h4><%= error %></h4>
+		</div>
+	<% } %>
+	<% if (success && success.length > 0){ %>
+		<div class = "alert alert-success" role = "alert">
+			<h4><%= success %></h4>
+		</div>
+	<% } %>
+</div>
+	
+	

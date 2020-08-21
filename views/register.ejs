@@ -1,0 +1,18 @@
+<%- include("./partials/header") %>
+	<h1>
+		Sign Up For YelpCamp
+	</h1>
+	<form action = "/register" method="POST">
+		<input type = "text" placeholder = "username" name = "username">
+		<input type = "password" placeholder = "password" name = "password">
+		<button>Sign up</button> <!--button at the end of a form automatically submits-->
+	</form>
+	
+<!--
+	<ul>
+		<li><a href = "/register">Sign up here to become a MEMBER!</a></li>
+		<li><a href = "/login">Log in here to EXPERIENCE.</a></li>
+		<li><a href = "/logout">Done? Click here to log out.</a></li>
+	</ul>
+-->
+<%- include("./partials/footer") %>

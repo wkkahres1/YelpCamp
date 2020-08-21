@@ -1,0 +1,30 @@
+<%- include ("../partials/header") %>
+
+<!--Comments NEW -->
+
+<div class = "container">
+	<div class = "row">
+	
+		<h1 style = "text-align: center;">Add New Comment to <%= campground.name %></h1>
+		<div style = "width: 30%; margin: 25px auto;">
+			<form action ="/campgrounds/<%=campground._id%>/comments" method = "POST">
+				<div class = "form-group">
+				<!-- form-group groups things together and gives a little space in between -->
+					<input type="text" class = "form-control" placeholder="text" name = "comment[text]">
+				</div>
+				<!-- no longer need author since it will be pulled from database
+				<div class = "form-group">
+					<input type="text" class = "form-control" placeholder="author" name = comment[author]>
+				</div>
+				-->
+				<div class = "form-group">
+					<button class ="btn btn-lg btn-primary btn-block">Submit!</button>
+					<!--btn-block makes button take up entire line -->
+				</div>
+			</form>
+			<a href="/campgrounds">Go back</a>
+		</div>
+	</div>
+</div>
+
+<%- include ("../partials/footer") %>

@@ -1,0 +1,201 @@
+
+#YelpCamp
+VERSION 1
+1)
+*Add Landing Page
+*Add Campground Page that lists all campgrounds
+
+Each Campground has	
+*Name
+*Image
+
+format for campgrounds
+[
+	{name:"Salmon Creek", image: "https://www.image.com "}
+	{name:"Salmon Creek", image: "https://www.image.com "}
+	{name:"Salmon Creek", image: "https://www.image.com "}
+	{name:"Salmon Creek", image: "https://www.image.com "}
+	{name:"Salmon Creek", image: "https://www.image.com "}
+	{name:"Salmon Creek", image: "https://www.image.com "}
+]
+
+2)#Layout and Basic Styling
+*Create our header and footer partials
+*Add in Bootstrap
+
+3)#Creating new Campgrounds
+*Setup new campground Post route
+*Add in body-parser
+*setup route to show form
+*add basic unstyled form
+
+4)#Style the campgrounds page
+* Add a better header/title
+* Make campgroudns display in a grid
+
+5)#Style the Navbar and Form
+* Add a navbar to all templates (login signout, buttons, but just text for now)
+* Style the new campground form - style the form
+
+VERSION 2
+6)#Add Mongoose and database
+*Install and configure mongoose
+*Setup Campground model
+*Use Campground model inside of our routes
+
+7)#SHOW Page
+*Review Restful Routes we've seen so far
+*Add description to our campground model
+*Show db.collection.drop
+*Add a show route template
+
+RESTFUL ROUTES
+
+name			url				verb			desc
+====================================================
+INDEX			/dogs			GET			Display a list of all dog
+NEW				/dogs/new		GET			Displays a form to make a new dog
+CREATE			/dogs			POST		Add new dog to DB
+SHOW			/dogs/:id		GET			Shows info about one dog
+
+8)Refactor Mongoose Code
+*Create a models directory
+*Use Module.exports
+*Require everything correctly!
+
+9)Add Seeds File
+*Add a seeds.js file
+*Display comments on campground show page
+
+10)Add the comment model
+* Make our errors go away!
+* Display comments on campground show page
+
+11)Comment New/Create
+* Discuss nested routes
+* Add the comment new and create routes
+* Add the new comment form
+
+name			url				verb			desc
+====================================================
+INDEX			/dogs			GET			Display a list of all dog
+NEW				/dogs/new		GET			Displays a form to make a new dog
+CREATE			/dogs			POST		Add new dog to DB
+SHOW			/dogs/:id		GET			Shows info about one dog
+
+REST Routes					Nested Routes
+==========================================
+Campground Routes			Comment Routes 
+INDEX /campgrounds
+NEW   /campgrounds/new
+CREATE /campgrounds
+SHOW /campground/:id	   	NEW		campgrounds/:id/comments/new	GET  
+							CREATE	campgrounds/:id/comment  		POST
+							
+comments are dependant upon campgrounds
+
+***V5 update***
+
+12)Style Show Page
+*Add Side bar to show page
+*Display Comments Nicely
+
+13)Finish Styling Show page
+*Add public directory
+*Add custom stylesheet
+
+***V6 update*** Authorization
+14) Add user model
+*install all packages needed for auth
+*define user model
+
+15) Register
+* Configurate Passport
+* add register routes
+* add register template.
+
+16) Login
+* Add login routes
+* Add login template
+
+17) Logout/Navbar updates
+* Add logout route
+* prevent user from adding a comment if not signed up
+* add links to navbar
+
+18) Show hide/links in navbar
+* show/hide links correctly)
+
+*V7 UPDATE*
+19) Refactor the routes
+* Use express router to reorganize all routes
+
+*v8 UPDATE*
+20) Users and Comments
+* Associate user name and comments
+* Save authors name to comment automatically
+
+*v9 Update
+21) Users * Campgrounds
+*Prevent an unauthorized user from creating a campground
+*Save username_id to a newly created campground
+
+no one can submit a new campground without signing in
+save username and id to the new campground -created by
+
+*v10 UPDATE
+22) Editing Campgrounds
+*Add Method-Override
+*Add Edit Route for Campgrounds
+*Add Link to Edit Page
+*Add Update Route
+
+23)
+*Add Destroy Route
+*Add Delete Button
+
+24)Authorization
+*User can only edit his/her campgrounds
+*User can only delete his/her campgrounds
+*Hide/Show edit and delete buttons
+
+25)Comment Edit and Update
+*Add edit route for comments
+*Add Edit button
+*Add Updated Routes
+
+REST Routes					Nested Routes
+==========================================
+Campground Routes			Comment Routes 
+INDEX /campgrounds
+NEW   /campgrounds/new
+CREATE /campgrounds
+SHOW /campground/:id	   	NEW		campgrounds/:id/comments/new	GET  
+							CREATE	campgrounds/:id/comment  		POST
+							
+comments are dependant upon campgrounds
+
+26)Deleting Comments
+*Add Destroy Route
+*Add Delete Button
+
+Campground destroy route- /campgrounds/:id
+Comments destroy route - /campgrounds/:id/comments/comment_id
+
+27) Authorizaiton Part 2: comments
+*User can only edit his comments
+*User can only delete his comments
+*Hide/Show edit and delete buttons
+*Refactor middleware
+
+*V11 Update
+28) Add In Flash
+*Demo Working flash - better user experience
+*Install and connect flash
+*Add bootstrap alerts to header
+
+
+
+
+
+

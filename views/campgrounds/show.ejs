@@ -1,0 +1,64 @@
+<%- include ("../partials/header") %> 
+
+<div class = "container">
+	<div class = "row">
+		<div class = "col-md-3">
+			<p class = "lead">YelpCamp</p>
+			<div class = "list-group">
+				<li class = "list-group-item active">Info 1</li>
+				<li class = "list-group-item">Info 1</li>
+				<li class = "list-group-item">Info 1</li>
+			</div>
+			<!--Map will go here -->		
+		</div> <!-- left column close -->
+		<div class = "col-md-9">
+			<div class = "thumbnail"> <!-- wrapped in border -->
+				<img class = "img-responsive" src ="<%= campground.img %>">
+				<div class = "caption-full">
+					
+					<h4 class = "pull-right">$<%=campground.price%>/night </h4>
+					<h4><a><%= campground.name %></a></h4>  
+					<!-- anchor because - park service page to book something in the future -->
+					<p><%= campground.description %></p>
+					<p>
+						<em>Submitted by <%= campground.author.username%></p></em>
+					</p>
+					<!-- if(foundCampground.author.id.equals(req.user._id)) { -->
+					<!-- currentUser was setup in app.js, header also uses it, SNEAKY -->
+					<!-- buttons show only if user is the author of the campground -->
+					<% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+						<a href = "/campgrounds/<%=campground._id%>/edit" class = "btn btn-warning">Edit</a>
+						<!-- form is needed for a delete -->
+						<form action = "/campgrounds/<%=campground._id%>?_method=DELETE" method = "POST" class = "delete-form">
+							<button class = "btn btn-danger">Delete</button>
+						</form>
+					<% } %>
+				</div><!-- description caption close -->
+			</div> <!--thumbnail close -->
+			<div class = "well"> <!-- well grey background and border -->
+				<div class = "text-right">
+					<a class = "btn btn-success" href = "/campgrounds/<%= campground._id %>/comments/new">Add a New comment</a>
+				</div>	
+				<hr>
+				<% campground.comments.forEach(function(comment){%>
+					<div class = "row">
+						<div class = "col-md-12">
+							<strong><%= comment.author.username %></strong>
+							<span class = "pull-right">10 days ago</span>						
+							<p>	<%= comment.text%> </p>
+							<% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+								<a class = "btn btn-xs btn-warning" 	href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit">Edit
+								</a>
+								<form class = "delete-form" action = "/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=DELETE" method = "POST">
+									<input type ="submit" class="btn btn-xs btn-danger" value="Delete">
+								</form>
+							<% } %>
+						</div>
+					</div> <!-- comments row close -->		
+				<%})%>
+			</div> <!--well close -->
+		</div> <!-- right column close -->
+	</div>		
+</div>
+
+<%- include ("../partials/footer") %> 
